@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .button {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        -webkit-transition-duration: 0.4s;
+        /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+      }
+
+      .button5 {
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+      }
+
+      .button5:hover {
+        background-color: #555555;
+        color: white;
+      }
+
+      .button1 {
+        background-color: white;
+        color: black;
+        border: 2px solid #4CAF50;
+      }
+
+      .button1:hover {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      .button2 {
+        background-color: white;
+        color: black;
+        border: 2px solid #008CBA;
+      }
+
+      .button2:hover {
+        background-color: #008CBA;
+        color: white;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 16px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Add a gray background color with some padding */
+
+      body {
+        font-family: Arial;
+        padding: 20px;
+        background: #f1f1f1;
+      }
+
+      /* Header/Blog Title */
+
+      .header {
+        padding: 30px;
+        font-size: 40px;
+        text-align: center;
+        background: white;
+      }
+
+      /* Create two unequal columns that floats next to each other */
+
+      /* Left column */
+
+      .leftcolumn {
+        float: left;
+        width: 75%;
+      }
+
+      /* Right column */
+
+      .rightcolumn {
+        float: left;
+        width: 25%;
+        padding-left: 20px;
+        padding: 30px
+      }
+
+      /* Fake image */
+
+      .fakeimg {
+        background-color: #aaa;
+        width: 100%;
+        padding: 20px;
+      }
+
+      /* Add a card effect for articles */
+
+      .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+      }
+
+      /* Clear floats after the columns */
+
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Footer */
+
+      .footer {
+        padding: 20px;
+        text-align: center;
+        background: #ddd;
+        margin-top: 20px;
+      }
+
+      /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+
+      @media screen and (max-width: 800px) {
+        .leftcolumn,
+        .rightcolumn {
+          width: 100%;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="header">
+      <h2>Money tracker - dashboard</h2>
+    </div>
+
+    <div class="row">
+      <div class="leftcolumn">
+
+        <div class="card">
+
+
+          <table>
+            <tr>
+              <th>id</th>
+              <th>Expense name</th>
+              <th>Amount</th>
+              <th>date</th>
+              <th>Action</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Shopping</td>
+              <td>500000</td>
+              <td>21/11/2018</td>
+              <td><a href="/edit">EDIT</a> | <a href="delete/">DELETE</a></td>
+            </tr>
+
+
+          </table>
+        </div>
+      </div>
+
+      <div class="rightcolumn">
+
+
+        <button class="button button1">Add expense</button> <br/>
+        <button class="button button2">New report</button><br/>
+        <button class="button button5">Edit budget</button><br/>
+        <table>
+          <tr>
+            <th>Username: </th>
+            <td>Rezha</td>
+
+          </tr>
+          <tr>
+            <th>Budget: </th>
+            <td>5000000</td>
+
+          </tr>
+          <tr>
+            <th> action</th>
+
+            <td>sss</td>
+
+
+
+
+          </tr>
+
+        </table>
+
+
+      </div>
+    </div>
+
+    <div class="footer">
+      <h2>Footer</h2>
+    </div>
+
+  </body>
+
+</html>
