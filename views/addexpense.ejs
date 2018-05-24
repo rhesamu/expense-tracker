@@ -47,19 +47,21 @@
     <h2 align="center">Add Expense</h2>
 
     <div>
-      <form action="/addexpense" method="post">
+      <form action="/expense/add" method="post">
         <label for="amount">Amount</label>
         <input type="text" id="amount" name="amount" placeholder="input amount..">
 
         <label for="expense">Expense category</label>
 
 
-        <label for="country">-- Expenses --</label>
-        <select id="expense" name="country">
-      <option value="Shopping">Shopping</option>
-      <option value="Makan">Makan</option>
-      <option value="Donasi">Donation</option>
+
+        <label for="expense">-- Expenses --</label>
+        <select id="expense" name="expenseId">
+              <% expense.forEach(function (expense){  %>
+      <option value="<%=expense.id%>"><%=expense.name%></option>
+  <% }) %>
     </select>
+
 
         <input type="submit" value="Add Expense">
       </form>
