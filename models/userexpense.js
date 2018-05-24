@@ -8,13 +8,11 @@ module.exports = (sequelize, DataTypes) => {
   UserExpense.associate = function(models) {
     // associations can be defined here
     UserExpense.belongsTo(models.User, {
-      foreignKey: 'userId',
-      as: 'users'
+      foreignKey: 'userId'
     });
 
     UserExpense.belongsTo(models.Expense, {
-      foreignKey: 'expenseId',
-      as: 'expenses'
+      foreignKey: 'expenseId'
     })
   };
   return UserExpense;

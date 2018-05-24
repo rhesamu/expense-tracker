@@ -156,17 +156,13 @@
   </head>
 
   <body>
-
     <div class="header">
       <h2>Money tracker - dashboard</h2>
     </div>
 
     <div class="row">
       <div class="leftcolumn">
-
         <div class="card">
-
-
           <table>
             <tr>
               <th>id</th>
@@ -175,40 +171,40 @@
               <th>date</th>
               <th>Action</th>
             </tr>
+            
+            <% for (var i = 0; i < userExpense.length; i++) {%>
             <tr>
-              <td>1</td>
-              <td>Shopping</td>
-              <td>500000</td>
-              <td>21/11/2018</td>
-              <td><a href="/edit">EDIT</a> | <a href="delete/">DELETE</a></td>
+              <td><%= userExpense[i].id %></td>
+              <td><%= userExpense[i].Expense.name %></td>
+              <td><%= userExpense[i].amount %></td>
+              <td><%= userExpense[i].createdAt %></td>
+              <td><a href="/expense/<%=userExpense[i].id%>/edit">Edit</a> | 
+                  <a href="/expense/<%=userExpense[i].id%>/delete">Delete</a>
+              </td>
             </tr>
+            <% } %>
           </table>
         </div>
       </div>
 
       <div class="rightcolumn">
-
-
-        <button class="button button1">Add expense</button> <br/>
-        <button class="button button2">New report</button><br/>
-        <button class="button button5">Edit budget</button><br/>
+        <button class="button button1" onclick="location.href='/expense/add'">Add expense</button> <br/>
+        <button class="button button2" onclick="location.href='/report'">Report</button><br/>
+        <button class="button button5" onclick="location.href='/create-new-name'">Add new category</button><br/>
         <table>
           <tr>
             <th>Username: </th>
-            <td>Rezha</td>
+            <td>User</td> <!--Edit soon-->
           </tr>
           <tr>
             <th>Budget: </th>
-            <td>5000000</td>
+            <td>0</td> <!--Edit soon-->
           </tr>
           <tr>
             <th> action</th>
-            <td>sss</td>
+            <td><a href="/budget">Edit Budget</a></td>
           </tr>
-
         </table>
-
-
       </div>
     </div>
 
