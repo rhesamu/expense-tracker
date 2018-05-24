@@ -5,6 +5,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Expense.associate = function(models) {
     // associations can be defined here
+    Expense.belongsToMany(models.User, {
+      as: 'users',
+      through: 'UserExpense',
+      foreignKey: 'expenseId',
+      otherKey: 'userId'
+    })
   };
   return Expense;
 };
