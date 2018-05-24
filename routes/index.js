@@ -29,8 +29,8 @@ router.post('/login', (req, res) => {
 
       let passChecker = bcrypt.compareSync(password, userData.password)
       if (passChecker === true) {
-        // res.render('dashboard', { user: userData })
-        res.send(userData);
+        res.redirect('dashboard')
+        // res.send(userData);
       } else {
         res.render('login', { msg: "Wrong password" })
       }
@@ -61,8 +61,8 @@ router.post('/register', (req, res) => {
   })
   .then((userData) => {
     console.log(userData);
-    // res.render('dashboard', { user: userData })
-    res.send(userData);
+    res.render('login', { msg: 'Registered' })
+    //res.send(userData);
   })
   .catch(err => {
     console.log('--->', err);
