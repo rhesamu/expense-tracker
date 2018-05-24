@@ -1,31 +1,139 @@
 const router = require('express').Router();
+let models = require('../models')
+let Expense = models.Expense
+let UserExpense = models.UserExpense
 
-router.get('/add', (req,res) => {
-  res.send('test expense add');
+//add expense -> NEW NOTE
+router.get('/add', (req, res) => {
+  Expense.findAll()
+    .then(function (expense) {
+      res.render('addexpense', {
+        expense: expense
+      })
+
+    })
+    .catch(function (err) {
+      console.log(err.message)
+    })
+
+
 })
 
-router.post('/add', (req,res) => {
-  res.send('test expense add');
+
+
+// POST expense
+router.post('/add', (req, res) => {
+  let userId = 2;
+  let expenseId = req.body.expenseId;
+  let amount = req.body.amount;
+
+  UserExpense.create({
+      userId,
+      expenseId,
+      amount
+    })
+    .then(function () {
+      res.redirect('/')
+    })
 })
 
-router.get('/:id/edit', (req,res) => {
-  res.send('test expense edit');
+
+
+
+
+router.get('/:id/edit', (req, res) => {
+
+  //not yet
+  UserExpense.findById(req.params.id)
+    .then(function (usersexpense) {
+
+      Expense.findAll()
+        .then(function (expense) {
+          // res.send(usersexpense)
+
+          res.render('editexpense', {
+            usersexpense: usersexpense,
+            expense: expense
+          })
+
+
+        })
+        .catch(function (err) {
+          console.log(err.message)
+        })
+
+    })
+
 })
 
-router.post('/:id/edit', (req,res) => {
-  res.send('test expense edit');
+
+
+
+router.post('/:id/edit', (req, res) => {
+
+  let expenseId = req.body.expenseId;
+  let amount = req.body.amount;
+
+  let obj = {
+    expenseId,
+    amount
+  };
+  User.update(obj, {
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(() => {
+      res.redirect('/');
+    })
+
 })
 
-router.get('/:id/delete', (req,res) => {
-  res.send('test expense add');
+
+
+
+//DELETE
+router.get('/:id/delete', (req, res) => {
+  UserExpense.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(function () {
+      res.redirect('/')
+    })
+
 })
 
-router.get('/create-new-name', (req,res) => {
-  res.send('test page')
+
+// new EXpense NAME
+router.get('/new-name', (req, res) => {
+  res.render('newexpense')
 })
 
-router.post('/create-new-name', (req,res) => {
-  res.send('test page')
+
+
+
+router.post('/new-name', (req, res) => {
+  let name = req.body.name
+  Expense.create({
+      name
+    })
+    .then(function () {
+      res.redirect('/dashboard')
+    })
+    .catch(function (err) {
+      console.log(err);
+    })
+
 })
+
+
+
+
+
+
+
+
 
 module.exports = router;
