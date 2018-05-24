@@ -33,6 +33,15 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   let month = req.body.month; //01-12
+  let startDate = `2018-${month}-01T00:00:00.078Z`;
+  if (month === '02') {
+    var endDay = '28';
+  } else if (month === '04' || month === '06' || month === '09' || month === '11') {
+    var endDay = '30'
+  } else {
+    var endDay = '31'
+  }
+  let endDate = `2018-${month}-${endDay}T23:59:59.078Z`
   // res.send(month)
   UserExpense.findAll({
     attributes: [ 
@@ -46,10 +55,7 @@ router.post('/', (req, res) => {
     where: { 
       userId: 2,
       createdAt: {
-        $between: [
-          `2018-${month}-01T05:16:21.078Z`,
-          `2018-${month}-30T05:16:21.078Z`
-        ]
+        $between: [ startDate, endDate ]
       }
     },
     include: [{ model: Expense }]

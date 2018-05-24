@@ -12,18 +12,20 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+    let date1 = new Date('2018-01-24T05:16:21.078Z');
+    let date2 = new Date('2018-01-15T05:16:21.078Z')
     return queryInterface.bulkInsert('UserExpenses', [{
-      userId: 1,
-      expenseId: 1,
-      amount: 150000,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
       userId: 2,
       expenseId: 1,
+      amount: 150000,
+      createdAt: date1,
+      updatedAt: date1
+    }, {
+      userId: 2,
+      expenseId: 2,
       amount: 100000,
-      createdAt: new Date(),
-      updatedAt: new Date()
+      createdAt: date2,
+      updatedAt: date2
     }], {})
   },
 
