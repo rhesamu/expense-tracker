@@ -4,8 +4,9 @@ const bodyParser = require('body-parser')
 let session = require('express-session')
 const indexRoute = require('./routes/index');
 const dashboardRoute = require('./routes/dashboard')
-const expense = require('./routes/expense')
-const budget = require('./routes/budget')
+const expenseRoute = require('./routes/expense')
+const reportRoute = require('./routes/report')
+// const budgetRoute = require('./routes/budget')
 
 app.set('view engine', 'ejs');
 app.set('trust proxy', 1);
@@ -25,8 +26,9 @@ app.use(bodyParser.urlencoded({
 // })
 app.use('/', indexRoute);
 app.use('/dashboard', dashboardRoute);
-app.use('/expense', expense)
-app.use('/budget', budget)
+app.use('/expense', expenseRoute)
+app.use('/report', reportRoute)
+// app.use('/budget', budgetRoute)
 
 
 app.listen(3000, () => console.log('expense-tracker listening on port 3000'));

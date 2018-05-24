@@ -48,7 +48,10 @@
 
   <body>
     <h1 align="center">Register new user Account </h1>
-
+    
+    <% if (msg) { %>
+      <p align="center"><%= msg %></p>
+    <% } %>
 
     <div class="container">
       <form action="/register" method="post">

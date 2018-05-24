@@ -20,7 +20,6 @@ router.post('/login', (req, res) => {
   User.findOne({
     where: {
       username: username
-      // password: password
     }
   })
   .then((userData) => {
@@ -66,8 +65,8 @@ router.post('/register', (req, res) => {
   })
   .catch(err => {
     console.log('--->', err);
-    // res.render('register', { msg: err.message })
-    res.send(err);
+    res.render('register', { msg: err.message })
+    // res.send(err);
   });
 })
 

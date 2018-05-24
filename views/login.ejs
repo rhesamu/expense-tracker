@@ -49,7 +49,10 @@
   <body>
     <h1 align="center">Login </h1>
 
-
+    <% if (msg) { %>
+      <p align="center"><%= msg %></p>
+    <% } %>
+    
     <div class="container">
       <form action="/login" method="post">
         <label for="username">Username</label>
