@@ -63,20 +63,23 @@
   <body>
     <div align="center">
       Reports:
-      <select id="expense" name="country">
-        <option value='01'>Januari</option>
-        <option value='02'>Februari</option>
-        <option value='03'>Maret</option>
-        <option value='04'>April</option>
-        <option value='05'>Mei</option>
-        <option value='06'>Juni</option>
-        <option value='07'>Juli</option>
-        <option value='08'>Agustus</option>
-        <option value='09'>September</option>
-        <option value='10'>Oktober</option>
-        <option value='11'>November</option>
-        <option value='12'>Desember</option>
-      </select>
+      <form action="/report" method="post">
+        <select id="month" name="month">
+          <option value='01'>Januari</option>
+          <option value='02'>Februari</option>
+          <option value='03'>Maret</option>
+          <option value='04'>April</option>
+          <option value='05'>Mei</option>
+          <option value='06'>Juni</option>
+          <option value='07'>Juli</option>
+          <option value='08'>Agustus</option>
+          <option value='09'>September</option>
+          <option value='10'>Oktober</option>
+          <option value='11'>November</option>
+          <option value='12'>Desember</option>
+        </select>
+        <input type="submit" value="Submit">
+      </form>
     </div>
 
     <h2 align="center">View Reports</h2>
@@ -89,14 +92,14 @@
           <th>Amount</th>
           <th>date</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>Shopping</td>
-          <td>500000</td>
-          <td>21/11/2018</td>
-        </tr>
-
-
+        <% userExpense.forEach(expense => {%>
+          <tr>
+            <td><%= expense.id %></td>
+            <td><%= expense.Expense.name%></td>
+            <td><%= expense.amount %></td>
+            <td><%= expense.createdAt %></td>
+          </tr>
+        <% }) %>
       </table>
     </div>
 
