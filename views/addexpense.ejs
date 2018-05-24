@@ -52,10 +52,6 @@
         <input type="text" id="amount" name="amount" placeholder="input amount..">
 
         <label for="expense">Expense category</label>
-
-
-
-        <label for="expense">-- Expenses --</label>
         <select id="expense" name="expenseId">
               <% expense.forEach(function (expense){  %>
       <option value="<%=expense.id%>"><%=expense.name%></option>
