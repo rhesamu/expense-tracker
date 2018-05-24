@@ -3,23 +3,26 @@ let models = require('../models')
 let Expense = models.Expense
 let UserExpense = models.UserExpense
 
-//add expense
+//add expense -> NEW NOTE
 router.get('/add', (req, res) => {
   Expense.findAll()
     .then(function (expense) {
       res.render('addexpense', {
         expense: expense
-      });
+      })
 
+    })
+    .catch(function (err) {
+      console.log(err.message)
     })
 
 
 })
 
+
+
 // POST expense
 router.post('/add', (req, res) => {
-
-
   let userId = 2;
   let expenseId = req.body.expenseId;
   let amount = req.body.amount;
@@ -39,15 +42,67 @@ router.post('/add', (req, res) => {
 
 
 router.get('/:id/edit', (req, res) => {
-  res.send('test expense edit');
+
+  //not yet
+  UserExpense.findById(req.params.id)
+    .then(function (usersexpense) {
+
+      Expense.findAll()
+        .then(function (expense) {
+          // res.send(usersexpense)
+
+          res.render('editexpense', {
+            usersexpense: usersexpense,
+            expense: expense
+          })
+
+
+        })
+        .catch(function (err) {
+          console.log(err.message)
+        })
+
+    })
+
 })
+
+
+
 
 router.post('/:id/edit', (req, res) => {
-  res.send('test expense edit');
+
+  let expenseId = req.body.expenseId;
+  let amount = req.body.amount;
+
+  let obj = {
+    expenseId,
+    amount
+  };
+  User.update(obj, {
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(() => {
+      res.redirect('/');
+    })
+
 })
 
+
+
+
+//DELETE
 router.get('/:id/delete', (req, res) => {
-  res.send('test expense add');
+  UserExpense.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(function () {
+      res.redirect('/')
+    })
+
 })
 
 
@@ -56,9 +111,11 @@ router.get('/new-name', (req, res) => {
   res.render('newexpense')
 })
 
+
+
+
 router.post('/new-name', (req, res) => {
   let name = req.body.name
-
   Expense.create({
       name
     })

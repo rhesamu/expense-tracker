@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <style>
+    $greys {
+      font-color: #eee;
+      color: #eee !important
+    }
+
     input[type=text],
     select {
       width: 100%;
@@ -45,11 +50,10 @@
   <body>
 
     <h2 align="center">Edit BUDGET</h2>
-
     <div>
-      <form action="/editbudget" method="post">
+      <form action="/budget/<%= users.id %>" method="post">
         <label for="amount">Amount</label>
-        <input type="text" id="amount" name="amount" placeholder="50000">
+        <input id="greys" type="text" id="amount" value="<%=users.budget %>" name="budget">
 
 
         <input type="submit" value=" EDIT BUDGET ">

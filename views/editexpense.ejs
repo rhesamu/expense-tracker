@@ -47,21 +47,26 @@
     <h2 align="center">Edit your Expense</h2>
 
     <div>
-      <form action="/addexpense" method="post">
+      <form action="/expense/<%=usersexpense.id%>/edit" method="post">
         <label for="amount">Amount</label>
-        <input type="text" id="amount" name="amount" placeholder="input amount..">
+        <input type="text" id="amount" name="amount" value="<%=usersexpense.amount%>" placeholder="input amount..">
 
         <label for="expense">Expense category</label>
+        <%=usersexpense.id%>
+
+          <label for="expenseid"> -- Expenses --</label>
+          <select id="expense.name" name="expenseId">
+              <% expense.forEach(function (expense){  %>
+
+      <option name="expenseid" value="<%=expense.id%>"><%=expense.name%></option>
 
 
-        <label for="country">-- Expenses --</label>
-        <select id="expense" name="country">
-      <option value="Shopping">Shopping</option>
-      <option value="Makan">Makan</option>
-      <option value="Donasi">Donation</option>
+  <% })  %>
     </select>
 
-        <input type="submit" value="    EDIT   ">
+
+
+          <input type="submit" value="EDIT ">
       </form>
     </div>
 
