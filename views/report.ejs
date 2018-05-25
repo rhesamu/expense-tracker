@@ -94,12 +94,22 @@
         </tr>
         <% userExpense.forEach(expense => {%>
           <tr>
-            <td><%= expense.id %></td>
-            <td><%= expense.Expense.name%></td>
-            <td><%= expense.amount %></td>
-            <td><%= expense.createdAt %></td>
+            <td>
+              <%= expense.id %>
+            </td>
+            <td>
+              <%= expense.Expense.name%>
+            </td>
+            <td>
+              <%= toRp(expense.amount) %>
+            </td>
+            <td>
+              <%= Tanggal(expense.createdAt) %>
+            </td>
+
+
           </tr>
-        <% }) %>
+          <% }) %>
       </table>
     </div>
 

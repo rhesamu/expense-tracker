@@ -171,18 +171,28 @@
               <th>date</th>
               <th>Action</th>
             </tr>
-            
+
+
+
             <% for (var i = 0; i < userExpense.length; i++) {%>
-            <tr>
-              <td><%= userExpense[i].id %></td>
-              <td><%= userExpense[i].Expense.name %></td>
-              <td><%= userExpense[i].amount %></td>
-              <td><%= userExpense[i].createdAt %></td>
-              <td><a href="/expense/<%=userExpense[i].id%>/edit">Edit</a> | 
+              <tr>
+                <td>
+                  <%= userExpense[i].id %>
+                </td>
+                <td>
+                  <%= userExpense[i].Expense.name %>
+                </td>
+                <td>
+                  <%= toRp(userExpense[i].amount) %>
+                </td>
+                <td>
+                  <%= Tanggal(userExpense[i].createdAt) %>
+                </td>
+                <td><a href="/expense/<%=userExpense[i].id%>/edit">Edit</a> |
                   <a href="/expense/<%=userExpense[i].id%>/delete">Delete</a>
-              </td>
-            </tr>
-            <% } %>
+                </td>
+              </tr>
+              <% } %>
           </table>
         </div>
       </div>
@@ -194,11 +204,13 @@
         <table>
           <tr>
             <th>Username: </th>
-            <td>User</td> <!--Edit soon-->
+            <td>User</td>
+            <!--Edit soon-->
           </tr>
           <tr>
             <th>Budget: </th>
-            <td>0</td> <!--Edit soon-->
+            <td>0</td>
+            <!--Edit soon-->
           </tr>
           <tr>
             <th> action</th>

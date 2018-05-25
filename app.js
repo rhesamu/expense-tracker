@@ -12,6 +12,9 @@ const port = process.env.PORT || 3000
 app.set('view engine', 'ejs');
 app.set('trust proxy', 1);
 
+app.locals.toRp = require('./helprupiah.js')
+app.locals.Tanggal = require('./datelocal.js')
+
 app.use(session({
   secret: 'keyboardcat',
   resave: false,
