@@ -5,5 +5,12 @@
     "database": "expense_tracker",
     "host": "127.0.0.1",
     "dialect": "postgres"
+  },
+  "production": {
+    "username": "bfwclahqgyffgj",
+    "password": "79b4ee14755527efd703ef3dfeee6da8154bf42fd55ed251cf8b4be54a7e135a",
+    "database": "d6d0n996ivvpip",
+    "host": "ec2-54-83-204-6.compute-1.amazonaws.com",
+    "dialect": "postgres"
   }
 }
