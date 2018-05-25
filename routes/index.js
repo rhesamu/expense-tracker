@@ -4,7 +4,7 @@ const User = models.User;
 let bcrypt = require('bcrypt');
 
 router.get('/', (req, res) => {
-  res.send('index router');
+  res.render('index');
 })
 
 router.get('/login', (req, res) => {
