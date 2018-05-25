@@ -7,6 +7,7 @@ const dashboardRoute = require('./routes/dashboard')
 const expenseRoute = require('./routes/expense')
 const reportRoute = require('./routes/report')
 // const budgetRoute = require('./routes/budget')
+const port = process.env.PORT || 3000
 
 app.set('view engine', 'ejs');
 app.set('trust proxy', 1);
@@ -31,4 +32,6 @@ app.use('/report', reportRoute)
 // app.use('/budget', budgetRoute)
 
 
-app.listen(3000, () => console.log('expense-tracker listening on port 3000'));
+app.listen(port, () => {
+  console.log(`expense-tracker listening on port ${port}`)
+})
