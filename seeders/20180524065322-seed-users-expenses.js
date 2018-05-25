@@ -18,12 +18,36 @@ module.exports = {
       userId: 2,
       expenseId: 1,
       amount: 150000,
-      createdAt: date1,
-      updatedAt: date1
+      createdAt: new Date(),
+      updatedAt: new Date()
     }, {
       userId: 2,
       expenseId: 2,
       amount: 100000,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      userId: 2,
+      expenseId: 3,
+      amount: 5000,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      userId: 2,
+      expenseId: 1,
+      amount: 70000,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      userId: 2,
+      expenseId: 2,
+      amount: 20000,
+      createdAt: date1,
+      updatedAt: date1
+    }, {
+      userId: 2,
+      expenseId: 3,
+      amount: 35000,
       createdAt: date2,
       updatedAt: date2
     }], {})

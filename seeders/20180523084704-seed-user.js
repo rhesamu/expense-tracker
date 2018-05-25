@@ -13,11 +13,11 @@ module.exports = {
       }], {});
     */
     return queryInterface.bulkInsert('Users', [{
-      username: 'rhesamu',
-      password: '12345',
-      budget: 0,
-      createdAt: new Date(),
-      updatedAt: new Date()
+      // username: 'rhesamu',
+      // password: '12345',
+      // budget: 0,
+      // createdAt: new Date(),
+      // updatedAt: new Date()
     }], {})
   },
 
