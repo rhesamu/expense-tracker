@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <style>
-    $greys {
+    greys {
       font-color: #eee;
       color: #eee !important
     }
@@ -51,11 +51,9 @@
 
     <h2 align="center">Edit BUDGET</h2>
     <div>
-      <form action="/budget/<%= users.id %>" method="post">
+      <form action="/budget" method="post">
         <label for="amount">Amount</label>
-        <input id="greys" type="text" id="amount" value="<%=users.budget %>" name="budget">
-
-
+        <input id="greys" type="text" id="amount" value="<%= users.budget %>" name="budget">
         <input type="submit" value=" EDIT BUDGET ">
       </form>
     </div>

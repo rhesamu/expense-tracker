@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
 
 router.get('/login', (req, res) => {
   // res.send('test login')
+  // res.json(req.session)
   res.render('login', { msg: '' })
 })
 
@@ -28,6 +29,8 @@ router.post('/login', (req, res) => {
 
       let passChecker = bcrypt.compareSync(password, userData.password)
       if (passChecker === true) {
+        req.session.username = username
+        req.session.userId = userData.id
         res.redirect('dashboard')
         // res.send(userData);
       } else {

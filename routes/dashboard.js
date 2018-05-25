@@ -42,18 +42,22 @@ router.get('/', (req, res) => {
       'createdAt', 
       'updatedAt' ],
     order: [['createdAt', 'DESC']],
-    where: { userId: 2 }, //req.session.userId
+    where: { userId: req.session.userId }, //req.session.userId
     include: [{
       model: Expense
     }, 
-    // {
-    //   model: User,
-    // }
+    {
+      model: User,
+    }
     ]
   })
   .then(function(result) {
     // res.json(result)
-    res.render('dashboard', { userExpense: result })
+    res.render('dashboard', { 
+      userExpense: result, 
+      username: req.session.username,
+      // userId: req.session.userId
+    })
   })
   .catch(function(err) {
     console.log(err),

@@ -193,12 +193,12 @@
         <button class="button button5" onclick="location.href='/expense/new-category'">Add new category</button><br/>
         <table>
           <tr>
-            <th>Username: </th>
-            <td>User</td> <!--Edit soon-->
+            <th>Username:</th>
+            <td> <%= username %> </td> <!--Edit soon-->
           </tr>
           <tr>
             <th>Budget: </th>
-            <td>0</td> <!--Edit soon-->
+            <td> <%= userExpense[0].User.budget %></td> <!--Edit soon-->
           </tr>
           <tr>
             <th> action</th>

@@ -15,13 +15,11 @@ router.get('/add', (req, res) => {
     .catch(function (err) {
       console.log(err.message)
     })
-
-
 })
 
 // POST expense
 router.post('/add', (req, res) => {
-  let userId = 2;
+  let userId = req.session.userId;
   let expenseId = req.body.expenseId;
   let amount = req.body.amount;
 

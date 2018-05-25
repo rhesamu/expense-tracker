@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
       'createdAt', 
       'updatedAt' ],
     order: [['createdAt', 'DESC']],
-    where: { userId: 2 }, //req.session.userId
+    where: { userId: req.session.userId }, //req.session.userId
     include: [{
       model: Expense
     }]
@@ -53,7 +53,7 @@ router.post('/', (req, res) => {
       'updatedAt' ],
     order: [['createdAt', 'DESC']],
     where: { 
-      userId: 2,
+      userId: req.session.userId,
       createdAt: {
         $between: [ startDate, endDate ]
       }
