@@ -50,6 +50,12 @@ module.exports = {
       amount: 35000,
       createdAt: date2,
       updatedAt: date2
+    }, {
+      userId: 1,
+      expenseId: 1,
+      amount: 55000,
+      createdAt: new Date(),
+      updatedAt: new Date()
     }], {})
   },
 

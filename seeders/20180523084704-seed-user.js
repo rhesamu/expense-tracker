@@ -12,13 +12,13 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('Users', [{
-      // username: 'rhesamu',
-      // password: '12345',
-      // budget: 0,
-      // createdAt: new Date(),
-      // updatedAt: new Date()
-    }], {})
+    // return queryInterface.bulkInsert('Users', [{
+    //   // username: 'rhesamu',
+    //   // password: '12345',
+    //   // budget: 0,
+    //   // createdAt: new Date(),
+    //   // updatedAt: new Date()
+    // }], {})
   },
 
   down: (queryInterface, Sequelize) => {
