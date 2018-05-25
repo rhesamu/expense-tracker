@@ -171,18 +171,17 @@
               <th>date</th>
               <th>Action</th>
             </tr>
-            
             <% for (var i = 0; i < userExpense.length; i++) {%>
             <tr>
               <td><%= userExpense[i].id %></td>
               <td><%= userExpense[i].Expense.name %></td>
-              <td><%= userExpense[i].amount %></td>
+              <td><%= currencyFormatter(userExpense[i].amount) %></td>
               <td><%= dateFormatter(userExpense[i].createdAt) %></td>
               <td><a href="/expense/<%=userExpense[i].id%>/edit">Edit</a> | 
                   <a href="/expense/<%=userExpense[i].id%>/delete">Delete</a>
-              </td>
-            </tr>
-            <% } %>
+                </td>
+              </tr>
+              <% } %>
           </table>
         </div>
       </div>
@@ -198,7 +197,7 @@
           </tr>
           <tr>
             <th>Budget: </th>
-            <td> <%= userExpense[0].User.budget %></td> <!--Edit soon-->
+            <td> <%= currencyFormatter(userExpense[0].User.budget) %></td> <!--Edit soon-->
           </tr>
           <tr>
             <th> action</th>

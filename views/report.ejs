@@ -99,10 +99,10 @@
           <tr>
             <td><%= expense.id %></td>
             <td><%= expense.Expense.name%></td>
-            <td><%= expense.amount %></td>
+            <td><%= currencyFormatter(expense.amount) %></td>
             <td><%= dateFormatter(expense.createdAt) %></td>
           </tr>
-        <% }) %>
+          <% }) %>
       </table>
     </div>
 

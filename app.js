@@ -22,7 +22,8 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
-app.locals.dateFormatter = require('./helpers/dateFormatter.js')
+app.locals.dateFormatter = require('./helpers/dateFormatter.js');
+app.locals.currencyFormatter = require('./helpers/currencyFormatter.js')
 
 app.use('/', indexRoute);
 app.use('/dashboard', dashboardRoute);
