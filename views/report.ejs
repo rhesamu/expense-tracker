@@ -2,6 +2,9 @@
 <html>
   <style>
     input[type=text],
+    body {
+      font-family: Arial
+    }
     select {
       width: 100%;
       padding: 12px 20px;
@@ -97,7 +100,7 @@
             <td><%= expense.id %></td>
             <td><%= expense.Expense.name%></td>
             <td><%= expense.amount %></td>
-            <td><%= expense.createdAt %></td>
+            <td><%= dateFormatter(expense.createdAt) %></td>
           </tr>
         <% }) %>
       </table>

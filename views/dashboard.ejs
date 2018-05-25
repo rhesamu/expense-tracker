@@ -177,7 +177,7 @@
               <td><%= userExpense[i].id %></td>
               <td><%= userExpense[i].Expense.name %></td>
               <td><%= userExpense[i].amount %></td>
-              <td><%= userExpense[i].createdAt %></td>
+              <td><%= dateFormatter(userExpense[i].createdAt) %></td>
               <td><a href="/expense/<%=userExpense[i].id%>/edit">Edit</a> | 
                   <a href="/expense/<%=userExpense[i].id%>/delete">Delete</a>
               </td>

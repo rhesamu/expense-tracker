@@ -22,20 +22,8 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
-// app.get('/', (req, res, next) => {
-//   let sessData = req.session;
-//   sessData.someAttribute = "foo";
-//   res.send('Returned some text')
-// })
+app.locals.dateFormatter = require('./helpers/dateFormatter.js')
 
-// app.get('/bar', function(req, res, next) {
-//   var someAttribute = req.session.someAttribute;
-//   res.send(`This will print the attribute I set earlier: ${someAttribute}`);
-// });
-
-// app.get('/', (req, res) => {
-//   res.send('connected');
-// })
 app.use('/', indexRoute);
 app.use('/dashboard', dashboardRoute);
 app.use('/expense', expenseRoute)
